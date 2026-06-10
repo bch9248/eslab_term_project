@@ -1,0 +1,179 @@
+ST Edge AI Core v2.2.0-20266 2adc00962
+Created date          : 2026-06-10 18:45:56
+Parameters            : generate --target stm32l4 --name network -m C:/Users/bryan/Downloads/fft_mlp_4096_16_3.onnx --compression none --verbosity 1 --workspace C:/Users/bryan/AppData/Local/Temp/mxAI_workspace2703615003273001664268451415400597 --output C:/Users/bryan/.stm32cubemx/network_output
+
+Exec/report summary (generate)
+------------------------------------------------------------------------------------------------------------
+model file         :   C:\Users\bryan\Downloads\fft_mlp_4096_16_3.onnx                                      
+type               :   onnx                                                                                 
+c_name             :   network                                                                              
+compression        :   none                                                                                 
+options            :   allocate-inputs, allocate-outputs                                                    
+optimization       :   balanced                                                                             
+target/series      :   stm32l4                                                                              
+workspace dir      :   C:\Users\bryan\AppData\Local\Temp\mxAI_workspace2703615003273001664268451415400597   
+output dir         :   C:\Users\bryan\.stm32cubemx\network_output                                           
+model_fmt          :   float                                                                                
+model_name         :   fft_mlp_4096_16_3                                                                    
+model_hash         :   0x2dc101ba94cabdf7135a9e5b1411b65f                                                   
+params #           :   65,603 items (256.26 KiB)                                                            
+------------------------------------------------------------------------------------------------------------
+input 1/1          :   'fft_input', f32(1x4096), 16.00 KBytes, activations                                  
+output 1/1         :   'output_0', f32(1x3), 12 Bytes, activations                                          
+macc               :   65,664                                                                               
+weights (ro)       :   262,412 B (256.26 KiB) (1 segment)                                                   
+activations (rw)   :   16,448 B (16.06 KiB) (1 segment) *                                                   
+ram (total)        :   16,448 B (16.06 KiB) = 16,448 + 0 + 0                                                
+------------------------------------------------------------------------------------------------------------
+(*) 'input'/'output' buffers are allocated in the activations buffer
+
+Model name - fft_mlp_4096_16_3
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+m_id   layer (type,original)                                  oshape          param/size           macc                     connected to   | c_size           c_macc             c_type                
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+1      StatefulPartitione..ariableOp0 (Placeholder, Gemm)     [b:4096,c:16]   65,536/262,144                                               | +64(+0.0%)       +65,552(+100.0%)   Dense_[0]             
+       StatefulPartitione..ariableOp0 (Placeholder, Gemm)     [b:16]          16/64                                                        | -64(-100.0%)                        
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+3      StatefulPartitione..ariableOp0 (Placeholder, MatMul)   [b:16,c:3]      48/192                                                       | -192(-100.0%)                       
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+4      StatefulPartitione..ariableOp0 (Placeholder, Add)      [b:3]           3/12                                                         | +192(+1600.0%)   +51(+100.0%)       Dense_[2]             
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+0      fft_input (Input, )                                    [b:1,c:4096]                                                                 |                                     
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+1      StatefulPartitione..1_BiasAdd0 (Gemm, Gemm)            [b:1,c:16]                         65,552                        fft_input   |                  -65,552(-100.0%)   
+                                                                                                          StatefulPartitione..ariableOp0   | 
+                                                                                                          StatefulPartitione..ariableOp0   | 
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+2      StatefulPartitione..16_1_Relu0 (Nonlinearity, Relu)    [b:1,c:16]                             16   StatefulPartitione..1_BiasAdd0   |                                     Nonlinearity_[1]      
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+3      StatefulPartitione.._1_MatMul0 (Gemm, MatMul)          [b:1,c:3]                              51   StatefulPartitione..16_1_Relu0   |                  -51(-100.0%)       
+                                                                                                          StatefulPartitione..ariableOp0   | 
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+4      StatefulPartitione..1_BiasAdd0 (Eltwise, Add)          [b:1,c:3]                               3   StatefulPartitione.._1_MatMul0   |                  -3(-100.0%)        
+                                                                                                          StatefulPartitione..ariableOp0   | 
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+5      output_0 (Nonlinearity, Softmax)                       [b:1,c:3]                              45   StatefulPartitione..1_BiasAdd0   |                                     Nonlinearity_[o][3]   
+------ ------------------------------------------------------ --------------- ---------------- -------- -------------------------------- --- ---------------- ------------------ --------------------- 
+model/c-model: macc=65,667/65,664 -3(-0.0%) weights=262,412/262,412  activations=--/16,448 io=--/0
+
+
+
+Generated C-graph summary
+------------------------------------------------------------------------------------------------------------------------
+model name            : fft_mlp_4096_16_3
+c-name                : network
+c-node #              : 4
+c-array #             : 9
+activations size      : 16448 (1 segment)
+weights size          : 262412 (1 segment)
+macc                  : 65664
+inputs                : ['fft_input_output']
+outputs               : ['output_0_output']
+
+C-Arrays (9)
+------ ------------------------------------------------------------------ -------------- ------------------------- ------------- --------- 
+c_id   name (*_array)                                                     item/size      domain/mem-pool           c-type        comment   
+------ ------------------------------------------------------------------ -------------- ------------------------- ------------- --------- 
+0      StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_bias      16/64          weights/weights           const float             
+1      StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_output    16/64          activations/**default**   float                   
+2      StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_weights   65536/262144   weights/weights           const float             
+3      StatefulPartitionedCall_sequential_1_dense_16_1_Relu0_output       16/64          activations/**default**   float                   
+4      StatefulPartitionedCall_sequential_1_output_1_MatMul0_bias         3/12           weights/weights           const float             
+5      StatefulPartitionedCall_sequential_1_output_1_MatMul0_output       3/12           activations/**default**   float                   
+6      StatefulPartitionedCall_sequential_1_output_1_MatMul0_weights      48/192         weights/weights           const float             
+7      fft_input_output                                                   4096/16384     activations/**default**   float         /input    
+8      output_0_output                                                    3/12           activations/**default**   float         /output   
+------ ------------------------------------------------------------------ -------------- ------------------------- ------------- --------- 
+
+C-Layers (4)
+------ ---------------------------------------------------------- ---- --------------- ------- -------- --------------------------------------------------------------------- ------------------ 
+c_id   name (*_layer)                                             id   layer_type      macc    rom      tensors                                                               shape (array id)   
+------ ---------------------------------------------------------- ---- --------------- ------- -------- --------------------------------------------------------------------- ------------------ 
+0      StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0   1    Dense           65552   262208   I: fft_input_output                                                   f32(1x4096) (7)    
+                                                                                                        W: StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_weights   f32(16x4096) (2)   
+                                                                                                        W: StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_bias      f32(16) (0)        
+                                                                                                        O: StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_output    f32(1x16) (1)      
+------ ---------------------------------------------------------- ---- --------------- ------- -------- --------------------------------------------------------------------- ------------------ 
+1      StatefulPartitionedCall_sequential_1_dense_16_1_Relu0      2    Nonlinearity    16      0        I: StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_output    f32(1x16) (1)      
+                                                                                                        O: StatefulPartitionedCall_sequential_1_dense_16_1_Relu0_output       f32(1x16) (3)      
+------ ---------------------------------------------------------- ---- --------------- ------- -------- --------------------------------------------------------------------- ------------------ 
+2      StatefulPartitionedCall_sequential_1_output_1_MatMul0      4    Dense           51      204      I: StatefulPartitionedCall_sequential_1_dense_16_1_Relu0_output       f32(1x16) (3)      
+                                                                                                        W: StatefulPartitionedCall_sequential_1_output_1_MatMul0_weights      f32(3x16) (6)      
+                                                                                                        W: StatefulPartitionedCall_sequential_1_output_1_MatMul0_bias         f32(3) (4)         
+                                                                                                        O: StatefulPartitionedCall_sequential_1_output_1_MatMul0_output       f32(1x3) (5)       
+------ ---------------------------------------------------------- ---- --------------- ------- -------- --------------------------------------------------------------------- ------------------ 
+3      output_0                                                   5    Nonlinearity    45      0        I: StatefulPartitionedCall_sequential_1_output_1_MatMul0_output       f32(1x3) (5)       
+                                                                                                        O: output_0_output                                                    f32(1x3) (8)       
+------ ---------------------------------------------------------- ---- --------------- ------- -------- --------------------------------------------------------------------- ------------------ 
+
+
+
+Number of operations per c-layer
+------- ------ ----------------------------------------------- -------- -------------- 
+c_id    m_id   name (type)                                          #op           type 
+------- ------ ----------------------------------------------- -------- -------------- 
+0       1      StatefulPartitione..1_BiasAdd0 (Dense)            65,552   smul_f32_f32 
+1       2      StatefulPartitione..16_1_Relu0 (Nonlinearity)         16     op_f32_f32 
+2       4      StatefulPartitione.._1_MatMul0 (Dense)                51   smul_f32_f32 
+3       5      output_0 (Nonlinearity)                               45     op_f32_f32 
+------- ------ ----------------------------------------------- -------- -------------- 
+total                                                            65,664 
+
+Number of operation types
+---------------- -------- ----------- 
+operation type          #           % 
+---------------- -------- ----------- 
+smul_f32_f32       65,603       99.9% 
+op_f32_f32             61        0.1% 
+
+Complexity report (model)
+------ ------------------------------------------ ------------------------- ------------------------- ------ 
+m_id   name                                       c_macc                    c_rom                     c_id   
+------ ------------------------------------------ ------------------------- ------------------------- ------ 
+1      StatefulPartitionedCall_sequ..ariableOp0   ||||||||||||||||  99.8%   ||||||||||||||||  99.9%   [0]    
+4      StatefulPartitionedCall_sequ..ariableOp0   |                  0.1%   |                  0.1%   [2]    
+2      StatefulPartitionedCall_sequ..16_1_Relu0   |                  0.0%   |                  0.0%   [1]    
+5      output_0                                   |                  0.1%   |                  0.0%   [3]    
+------ ------------------------------------------ ------------------------- ------------------------- ------ 
+macc=65,664 weights=262,412 act=16,448 ram_io=0
+ 
+ Requested memory size by section - "stm32l4" target
+ ------------------------------ ------- --------- ------- -------- 
+ module                            text    rodata    data      bss 
+ ------------------------------ ------- --------- ------- -------- 
+ NetworkRuntime1020_CM4_GCC.a     6,924         0       0        0 
+ network.o                          476        32   1,268      136 
+ network_data.o                      48        16      88        0 
+ lib (toolchain)*                   614        24       0        0 
+ ------------------------------ ------- --------- ------- -------- 
+ RT total**                       8,062        72   1,356      136 
+ ------------------------------ ------- --------- ------- -------- 
+ weights                              0   262,416       0        0 
+ activations                          0         0       0   16,448 
+ io                                   0         0       0        0 
+ ------------------------------ ------- --------- ------- -------- 
+ TOTAL                            8,062   262,488   1,356   16,584 
+ ------------------------------ ------- --------- ------- -------- 
+ *  toolchain objects (libm/libgcc*)
+ ** RT AI runtime objects (kernels+infrastructure)
+  
+  Summary - "stm32l4" target
+  -------------------------------------------------
+               FLASH (ro)     %*   RAM (rw)      % 
+  -------------------------------------------------
+  RT total          9,490   3.5%      1,492   8.3% 
+  -------------------------------------------------
+  TOTAL           271,906            17,940        
+  -------------------------------------------------
+  *  rt/total
+
+
+Generated files (7)
+------------------------------------------------------------------ 
+C:\Users\bryan\.stm32cubemx\network_output\network_data_params.h   
+C:\Users\bryan\.stm32cubemx\network_output\network_data_params.c   
+C:\Users\bryan\.stm32cubemx\network_output\network_data.h          
+C:\Users\bryan\.stm32cubemx\network_output\network_data.c          
+C:\Users\bryan\.stm32cubemx\network_output\network_config.h        
+C:\Users\bryan\.stm32cubemx\network_output\network.h               
+C:\Users\bryan\.stm32cubemx\network_output\network.c               

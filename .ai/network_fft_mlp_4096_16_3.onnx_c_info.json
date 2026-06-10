@@ -1,0 +1,583 @@
+{
+  "buffers": [
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 1,
+        "start": 0
+      },
+      "flags": "STAI_FLAG_WEIGHTS|STAI_FLAG_CONST|STAI_FLAG_PREALLOCATED",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 110,
+      "intq": {},
+      "is_param": true,
+      "mpool_id": 1,
+      "name": "StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_bias_array",
+      "nbits": 32,
+      "offset_start": 262144,
+      "qmn": {},
+      "shape": [
+        16
+      ],
+      "shape_map": [
+        "CH"
+      ],
+      "size_bytes": 64
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 6,
+        "start": 3
+      },
+      "flags": "STAI_FLAG_PREALLOCATED|STAI_FLAG_ACTIVATIONS",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 99,
+      "intq": {},
+      "is_param": false,
+      "mpool_id": 0,
+      "name": "StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_output_array",
+      "nbits": 32,
+      "offset_start": 16384,
+      "qmn": {},
+      "shape": [
+        16
+      ],
+      "shape_map": [
+        "CH"
+      ],
+      "size_bytes": 64
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 1,
+        "start": 0
+      },
+      "flags": "STAI_FLAG_WEIGHTS|STAI_FLAG_CONST|STAI_FLAG_PREALLOCATED",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 107,
+      "intq": {},
+      "is_param": true,
+      "mpool_id": 1,
+      "name": "StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0_weights_array",
+      "nbits": 32,
+      "offset_start": 0,
+      "qmn": {},
+      "shape": [
+        16,
+        4096
+      ],
+      "shape_map": [
+        "CH",
+        "CH_IN"
+      ],
+      "size_bytes": 262144
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 8,
+        "start": 5
+      },
+      "flags": "STAI_FLAG_PREALLOCATED|STAI_FLAG_ACTIVATIONS",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 101,
+      "intq": {},
+      "is_param": false,
+      "mpool_id": 0,
+      "name": "StatefulPartitionedCall_sequential_1_dense_16_1_Relu0_output_array",
+      "nbits": 32,
+      "offset_start": 0,
+      "qmn": {},
+      "shape": [
+        16
+      ],
+      "shape_map": [
+        "CH"
+      ],
+      "size_bytes": 64
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 1,
+        "start": 0
+      },
+      "flags": "STAI_FLAG_WEIGHTS|STAI_FLAG_CONST|STAI_FLAG_PREALLOCATED",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 116,
+      "intq": {},
+      "is_param": true,
+      "mpool_id": 1,
+      "name": "StatefulPartitionedCall_sequential_1_output_1_MatMul0_bias_array",
+      "nbits": 32,
+      "offset_start": 262400,
+      "qmn": {},
+      "shape": [
+        3
+      ],
+      "shape_map": [
+        "CH"
+      ],
+      "size_bytes": 12
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 10,
+        "start": 7
+      },
+      "flags": "STAI_FLAG_PREALLOCATED|STAI_FLAG_ACTIVATIONS",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 103,
+      "intq": {},
+      "is_param": false,
+      "mpool_id": 0,
+      "name": "StatefulPartitionedCall_sequential_1_output_1_MatMul0_output_array",
+      "nbits": 32,
+      "offset_start": 64,
+      "qmn": {},
+      "shape": [
+        3
+      ],
+      "shape_map": [
+        "CH"
+      ],
+      "size_bytes": 12
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 1,
+        "start": 0
+      },
+      "flags": "STAI_FLAG_WEIGHTS|STAI_FLAG_CONST|STAI_FLAG_PREALLOCATED",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 113,
+      "intq": {},
+      "is_param": true,
+      "mpool_id": 1,
+      "name": "StatefulPartitionedCall_sequential_1_output_1_MatMul0_weights_array",
+      "nbits": 32,
+      "offset_start": 262208,
+      "qmn": {},
+      "shape": [
+        3,
+        16
+      ],
+      "shape_map": [
+        "CH",
+        "CH_IN"
+      ],
+      "size_bytes": 192
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 4,
+        "start": 2
+      },
+      "flags": "STAI_FLAG_INPUTS|STAI_FLAG_PREALLOCATED|STAI_FLAG_ACTIVATIONS",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 97,
+      "intq": {},
+      "is_param": false,
+      "mpool_id": 0,
+      "name": "fft_input_output_array",
+      "nbits": 32,
+      "offset_start": 0,
+      "qmn": {},
+      "shape": [
+        4096
+      ],
+      "shape_map": [
+        "CH"
+      ],
+      "size_bytes": 16384
+    },
+    {
+      "alignment": 4,
+      "batch": 0,
+      "channel_first": true,
+      "channel_last": true,
+      "epochs": {
+        "end": 11,
+        "start": 9
+      },
+      "flags": "STAI_FLAG_OUTPUTS|STAI_FLAG_PREALLOCATED|STAI_FLAG_ACTIVATIONS",
+      "format": "STAI_FORMAT_FLOAT",
+      "id": 105,
+      "intq": {},
+      "is_param": false,
+      "mpool_id": 0,
+      "name": "output_0_output_array",
+      "nbits": 32,
+      "offset_start": 0,
+      "qmn": {},
+      "shape": [
+        3
+      ],
+      "shape_map": [
+        "CH"
+      ],
+      "size_bytes": 12
+    }
+  ],
+  "environment": {
+    "generated_model": {
+      "generated_time": "2026-06-10T18:45:54+0800",
+      "model_files": [
+        {
+          "name": "network_data_params.h",
+          "signature": "0xf48c5a6069c6398c80bd2f2608a18208"
+        },
+        {
+          "name": "network_data_params.c",
+          "signature": "0x61cbc3372265136bc1080ace938f0235"
+        },
+        {
+          "name": "network_data.h",
+          "signature": "0x8450d8347ef806c6ce6981ebea20b721"
+        },
+        {
+          "name": "network_data.c",
+          "signature": "0xa97110167570bdfb1b418126b2212ad7"
+        },
+        {
+          "name": "network_config.h",
+          "signature": "0x5a355dcdbc5a2f5ee68fbc5e3b0e24e3"
+        },
+        {
+          "name": "network.h",
+          "signature": "0x9ad2ec5245980d2153f1cecc94c9dafd"
+        },
+        {
+          "name": "network.c",
+          "signature": "0xf2de20ef799414d18d3c3b9a290c7dfc"
+        }
+      ],
+      "name": "network"
+    },
+    "network_signature": "0xdcd32808ca22988b",
+    "test_name": "",
+    "tools": [
+      {
+        "arguments": "generate --target stm32l4 --name network -m C:/Users/bryan/Downloads/fft_mlp_4096_16_3.onnx --compression none --verbosity 1 --workspace C:/Users/bryan/AppData/Local/Temp/mxAI_workspace2703615003273001664268451415400597 --output C:/Users/bryan/.stm32cubemx/network_output",
+        "environment": [
+          "STATS_TYPE=X-CUBE-AI"
+        ],
+        "input_model": {
+          "model_files": [
+            {
+              "name": "fft_mlp_4096_16_3.onnx",
+              "signature": "0x2dc101ba94cabdf7135a9e5b1411b65f"
+            }
+          ],
+          "n_params": 65603,
+          "name": "fft_mlp_4096_16_3",
+          "size": 262412,
+          "type": "onnx"
+        },
+        "name": "ST.EdgeAI.Core",
+        "version": "2.2.0-20266 2adc00962"
+      }
+    ]
+  },
+  "graphs": [
+    {
+      "edges": [
+        {
+          "buffer": 99,
+          "edge_kind": "EDGE_MEMORY",
+          "end": {
+            "node_id": 6,
+            "port": 0
+          },
+          "id": 0,
+          "name": "n5-p0_n6-p0",
+          "start": {
+            "node_id": 5,
+            "port": 0
+          }
+        },
+        {
+          "buffer": 101,
+          "edge_kind": "EDGE_MEMORY",
+          "end": {
+            "node_id": 7,
+            "port": 0
+          },
+          "id": 1,
+          "name": "n6-p0_n7-p0",
+          "start": {
+            "node_id": 6,
+            "port": 0
+          }
+        },
+        {
+          "buffer": 103,
+          "edge_kind": "EDGE_MEMORY",
+          "end": {
+            "node_id": 8,
+            "port": 0
+          },
+          "id": 2,
+          "name": "n7-p0_n8-p0",
+          "start": {
+            "node_id": 7,
+            "port": 0
+          }
+        }
+      ],
+      "id": 0,
+      "inputs": [
+        97
+      ],
+      "name": "fft_mlp_4096_16_3",
+      "nodes": [
+        {
+          "attributes": {
+            "num_units": "16",
+            "use_bias": "True"
+          },
+          "description": "Dense",
+          "id": 5,
+          "inputs": [
+            97,
+            107,
+            110
+          ],
+          "macc": 65552,
+          "mapping": "NODE_SW",
+          "name": "StatefulPartitionedCall_sequential_1_dense_16_1_BiasAdd0",
+          "original_nodes": [
+            "1"
+          ],
+          "outputs": [
+            99
+          ],
+          "scratchs": [],
+          "subgraph_nodes": [],
+          "sw_functions": [
+            "forward_dense"
+          ]
+        },
+        {
+          "attributes": {
+            "nonlinearity": "relu"
+          },
+          "description": "Nonlinearity",
+          "id": 6,
+          "inputs": [
+            99
+          ],
+          "macc": 16,
+          "mapping": "NODE_SW",
+          "name": "StatefulPartitionedCall_sequential_1_dense_16_1_Relu0",
+          "original_nodes": [
+            "2"
+          ],
+          "outputs": [
+            101
+          ],
+          "scratchs": [],
+          "subgraph_nodes": [],
+          "sw_functions": [
+            "forward_relu"
+          ]
+        },
+        {
+          "attributes": {
+            "num_units": "3",
+            "use_bias": "True"
+          },
+          "description": "Dense",
+          "id": 7,
+          "inputs": [
+            101,
+            113,
+            116
+          ],
+          "macc": 51,
+          "mapping": "NODE_SW",
+          "name": "StatefulPartitionedCall_sequential_1_output_1_MatMul0",
+          "original_nodes": [
+            "4"
+          ],
+          "outputs": [
+            103
+          ],
+          "scratchs": [],
+          "subgraph_nodes": [],
+          "sw_functions": [
+            "forward_dense"
+          ]
+        },
+        {
+          "attributes": {
+            "axis": "CH",
+            "nonlinearity": "softmax",
+            "orig_axis": "1"
+          },
+          "description": "Nonlinearity",
+          "id": 8,
+          "inputs": [
+            103
+          ],
+          "macc": 45,
+          "mapping": "NODE_SW",
+          "name": "output_0",
+          "original_nodes": [
+            "5"
+          ],
+          "outputs": [
+            105
+          ],
+          "scratchs": [],
+          "subgraph_nodes": [],
+          "sw_functions": [
+            "forward_sm"
+          ]
+        }
+      ],
+      "original_inputs": [
+        {
+          "c_shape_map": [],
+          "data_format": {
+            "quantizer": "NONE",
+            "scale": [],
+            "size": 32,
+            "type": "FLOAT",
+            "zero": []
+          },
+          "name": "fft_input",
+          "shape": [
+            1,
+            4096
+          ],
+          "shape_map": [
+            "BATCH",
+            "CH"
+          ]
+        }
+      ],
+      "original_outputs": [
+        {
+          "c_shape_map": [],
+          "data_format": {
+            "quantizer": "NONE",
+            "scale": [],
+            "size": 32,
+            "type": "FLOAT",
+            "zero": []
+          },
+          "name": "output_0",
+          "shape": [
+            1,
+            3
+          ],
+          "shape_map": [
+            "BATCH",
+            "CH"
+          ]
+        }
+      ],
+      "outputs": [
+        105
+      ]
+    }
+  ],
+  "json_schema_version": "2.0",
+  "memory_footprint": {
+    "activations": 16448,
+    "io": [
+      0,
+      0
+    ],
+    "kernel_flash": 9490,
+    "kernel_ram": 1492,
+    "series": "stm32l4",
+    "toolchain": "arm-none-eabi-gcc (GNU Tools for STM32 13.3.rel1.20240926-1715) 13.3.1 20240614",
+    "toolchain_flash": 638,
+    "toolchain_ram": 0,
+    "weights": 262412
+  },
+  "memory_pools": [
+    {
+      "address": "NULL",
+      "alignment": 4,
+      "attributes": {
+        "latency": "HIGH",
+        "score": 768,
+        "throughput": "LOW"
+      },
+      "buffers": [
+        97,
+        99,
+        101,
+        103,
+        105
+      ],
+      "id": 0,
+      "name": "heap_overlay_pool",
+      "offset_start": 0,
+      "persistent": false,
+      "rights": "ACC_WRITE",
+      "size_bytes": -1,
+      "subpools": [],
+      "used_size_bytes": 16448,
+      "user_allocated": false,
+      "virtual": false
+    },
+    {
+      "address": "s_network_weights_array_u64",
+      "alignment": 0,
+      "attributes": {
+        "latency": "UNDEF",
+        "score": 0,
+        "throughput": "UNDEF"
+      },
+      "buffers": [
+        107,
+        110,
+        113,
+        116
+      ],
+      "id": 1,
+      "name": "weights_array",
+      "offset_start": 0,
+      "persistent": true,
+      "rights": "ACC_READ",
+      "size_bytes": -1,
+      "subpools": [],
+      "used_size_bytes": 262412,
+      "user_allocated": false,
+      "virtual": false
+    }
+  ]
+}

@@ -6,6 +6,8 @@ This project aims to build a simple real-time audio event recognition system usi
 
 The STM32 is responsible for audio acquisition and feature extraction, while the Raspberry Pi receives the extracted features and performs audio event classification.
 
+(Report.pdf is in main branch, and the whole project source code is in final branch)
+
 ## System Workflow
 
 ```text
